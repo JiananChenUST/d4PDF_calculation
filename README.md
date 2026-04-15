@@ -1,10 +1,10 @@
-# Near-Storm RH and Saturation Deficit Calculation (d4PDF)
+# Total column water vapour TCWV Calculation (d4PDF)
 
 ## Overview
 
-This project contains Python scripts to calculate area-averaged **Relative Humidity (RH)** and **Saturation Deficit (SD)** within a **500 km** radius around tropical cyclone centers using d4PDF data (Nature Run and +4K warming scenarios).
+This project contains Python scripts to calculate area-averaged **Total column water vapour** within multiple radii around tropical cyclone centers using d4PDF data (Nature Run and +4K warming scenarios).
 
-The scripts use 6-hourly specific humidity (`Q`) and temperature (`T`) on a 1.25° grid at 12 pressure levels.
+The scripts use 6-hourly specific humidity (`Q`) on a 1.25° grid at 12 pressure levels.
 
 ---
 
@@ -19,24 +19,24 @@ Please place all track files in a folder named **`Tracks`** in the same director
 **For +4K Warming Scenarios (HFB_4K_*)**:
 
 - Ensemble members **101–115** for the following models:
-  - `MRI_HFB_4K_MR_m101.nc` … `MRI_HFB_4K_MR_m115.nc`
-  - `MRI_HFB_4K_MI_m101.nc` … `MRI_HFB_4K_MI_m115.nc`
-  - `MRI_HFB_4K_MP_m101.nc` … `MRI_HFB_4K_MP_m115.nc`
-  - `MRI_HFB_4K_CC_m101.nc` … `MRI_HFB_4K_CC_m115.nc`
-  - `MRI_HFB_4K_HA_m101.nc` … `MRI_HFB_4K_HA_m115.nc`
-  - `MRI_HFB_4K_GF_m101.nc` … `MRI_HFB_4K_GF_m115.nc`
+  - `MRI_HFB_4K_MR_m101.nc` … `MRI_HFB_4K_MR_m106.nc`
+  - `MRI_HFB_4K_MI_m101.nc` … `MRI_HFB_4K_MI_m106.nc`
+  - `MRI_HFB_4K_MP_m101.nc` … `MRI_HFB_4K_MP_m106.nc`
+  - `MRI_HFB_4K_CC_m101.nc` … `MRI_HFB_4K_CC_m106.nc`
+  - `MRI_HFB_4K_HA_m101.nc` … `MRI_HFB_4K_HA_m106.nc`
+  - `MRI_HFB_4K_GF_m101.nc` … `MRI_HFB_4K_GF_m106.nc`
 
 **For Nature Run (NAT)**:
 
 - Ensemble members **1–15** for the following models:
-  - `xytrackk319b_HPB_NAT_m001_1951-2010.txt` to `xytrackk319b_HPB_NAT_m015_1951-2010.txt`
+  - `xytrackk319b_HPB_NAT_m001_1951-2010.txt` to `xytrackk319b_HPB_NAT_m006_1951-2010.txt`
 
 ### 2. 6-Hourly Model Output (`.dat` files)
 
 **Required fields**:
 
 - Specific humidity (`Q`)
-- Air temperature (`T`)
+
 
 **Specification**:
 
@@ -50,11 +50,10 @@ Please place all track files in a folder named **`Tracks`** in the same director
 ## How to Run
 
 
-1. Open `NAT.py`,  `4K_MI.py`, `4K_MR.py`,`4K_MP.py`, `4K_CC.py`, `4K_GF.py`, `4K_HA.py`
+1. Open `NAT_TCWV.py`,  `4K_MI_TCWV.py`, `4K_MR_TCWV.py`,`4K_MP_TCWV.py`, `4K_CC_TCWV.py`, `4K_GF_TCWV.py`, `4K_HA_TCWV.py`
 2. Update only these four lines with your correct paths:
    ```python
    TRACK_PATH_TEMPLATE = "..."
    Q_PATH_TEMPLATE     = "..."
-   T_PATH_TEMPLATE     = "..."
    OUTPUT_DIR          = "..."
    ```
